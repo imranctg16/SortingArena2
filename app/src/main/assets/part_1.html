@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-wয়াdth, user-scalable=no" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript" async src="mathjax/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="js/vivus.min.js"></script>
+    <title>BUBBLE SORT</title>
+  </head>
+  <body>
+      <div class="body-content">
+      <h1>Insertion Sort</h1><hr>
+      <div class="card">
+          <h1>ABOUT</h1>
+          <p>
+              Insertion sort. Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. <br>
+              It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.<br/>
+              <article>
+                  <p>
+                      <strong>Insertion sort</strong> provides several advantages:<br/>
+                  </p>
+                  <ul>
+                      <li>Simple implementation: Bentley shows a three-line C version, and a five-line optimized version</li>
+                      <li>Efficient for (quite) small data sets, much like other quadratic sorting algorithms</li>
+                      <li>More efficient in practice than most other simple quadratic (i.e., O(n2)) algorithms such as selection sort or bubble sort</li>
+                      <li><strong>Adaptive</strong> i.e., efficient for data sets that are already substantially sorted: the time complexity is O(nk) when each element in the input is no more than k places away from its sorted position</li>
+                      <li><strong>Stable</strong> i.e., does not change the relative order of elements with equal keys</li>
+                      <li><strong>In-place</strong> i.e., only requires a constant amount O(1) of additional memory space</li>
+                      <li><strong>Online</strong> i.e., can sort a list as it receives it</li>
+                  </ul>
+              </article>
+          </p>
+      </div>
+      <div class="note">
+          <h1>ALGORITHM</h1>
+          <p>
+              1. <strong>for</strong>j = 2 to A.length<br/>
+          </p>
+          <p>
+              2. key = A[j]<br/>
+          </p>
+          <p>
+              3 .//Insert a[j] into the sorted<br/> sequence a[1..j-1]
+          </p>
+          <p>
+              4. i = j - 1<br/>
+          </p>
+          <p>
+              5. <strong>while</strong> i>0 and A[i] > key<br/>
+          </p>
+          <p>6. A[i+1] = A[i]</p>
+          <p>
+              7. i = i - 1<br/>
+          </p>
+          <p>8. A[i + 1] = key</p>
+      </div>
+      <div class="note">
+          <h1>Implementation</h1>
+          <p>
+              #include < stdio.h ><br/>
+
+              int main()<br/>
+              { <br/>
+              int n, array[1000], c, d, t; <br/>
+
+              printf("Enter number of elements\n"); <br/>
+              scanf("%d", &n); <br/>
+
+              printf("Enter %d integers\n", n); <br/>
+
+              for (c = 0; c < n; c++) { <br/>
+              scanf("%d", &array[c]); <br/>
+              } <br/>
+
+              for (c = 1 ; c < = n - 1; c++) { <br/>
+              d = c; <br/>
+
+              while ( d > 0 && array[d] < array[d-1]) { <br/>
+                t = array[d]; <br/>
+                array[d] = array[d-1]; <br/>
+                array[d-1] = t; <br/>
+
+                d--; <br/>
+              } <br/>
+              } <br/>
+
+              printf("Sorted list in ascending order:\n"); <br/>
+
+              for (c = 0; c < = n - 1; c++) { <br/>
+              printf("%d\n", array[c]); <br/>
+              } <br/>
+
+              return 0; <br/>
+              }
+          </p>
+      </div>
+
+
+      </div>
+  </body>
+</html>
