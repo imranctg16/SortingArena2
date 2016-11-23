@@ -35,19 +35,19 @@ public class Main2Activity extends AppCompatActivity {
         if(newString.contentEquals("BUBBLE"))
         {
             Log.d(TAG, " bubble ");
-            view.loadUrl("file:///android_asset/part_1.html");
+            view.loadUrl("file:///android_asset/part_2.html");
         }
         else if(newString.contentEquals("SELECTION"))
         {
-            view.loadUrl("file:///android_asset/part_1.html");
+            view.loadUrl("file:///android_asset/part_5.html");
         }
         else if(newString.contentEquals("MERGE"))
         {
-            view.loadUrl("file:///android_asset/part_1.html");
+            view.loadUrl("file:///android_asset/part_4.html");
         }
         else if(newString.contentEquals("QUICK"))
         {
-            view.loadUrl("file:///android_asset/part_1.html");
+            view.loadUrl("file:///android_asset/part_3.html");
         }
         else if(newString.contentEquals("INSERTION"))
         {
