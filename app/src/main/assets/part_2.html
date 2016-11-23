@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-wয়াdth, user-scalable=no" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript" async src="mathjax/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="js/vivus.min.js"></script>
+    <title>Bubble Sort</title>
+  </head>
+  <body>
+    <div class="body-content">
+        <div class="card">
+            <h1>About</h1>
+            <p>
+Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list to be sorted,<br>
+compares each pair of adjacent items and swaps them if they are in the wrong order. <br>
+The pass through the list is repeated until no swaps are needed, which indicates that the list is sorted. <br>
+The algorithm, which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of the list.<br>
+Although the algorithm is simple, it is too slow and impractical for most problems even when compared to insertion sort.<br>
+It can be practical if the input is usually in sorted order but may occasionally <br>have some out-of-order elements nearly in position
+            </p>
+        </div>
+        <div class="note">
+            <h1>Algorithm</h1>
+            <p>
+              procedure bubbleSort( list : array of items )<br>
+
+ loop = list.count;<br>
+
+ for i = 0 to loop-1 do:<br>
+    swapped = false<br>
+
+    for j = 0 to loop-1 do:<br>
+
+       /* compare the adjacent elements */ <br>
+       if list[j] > list[j+1] then<br>
+          /* swap them */<br>
+          swap( list[j], list[j+1] )<br>
+          swapped = true<br>
+       end if<br>
+
+    end for<br>
+
+    /*if no number was swapped that means <br>
+    array is sorted now, break the loop.*/<br>
+
+    if(not swapped) then<br>
+       break<br>
+    end if<br>
+
+ end for<br>
+
+end procedure return list<br>
+            </p>
+        </div>
+        <div class="note">
+            <h1>Implementation</h1>
+            <p>
+              // C program for implementation of Bubble sort<br>
+#include <stdio.h><br>
+
+void swap(int *xp, int *yp)<br>
+{
+  int temp = *xp;<br>
+  *xp = *yp;<br>
+  *yp = temp;<br>
+}
+
+// A function to implement bubble sort<br>
+void bubbleSort(int arr[], int n)<br>
+{
+ int i, j;<br>
+ for (i = 0; i < n-1; i++)    <br>
+
+     // Last i elements are already in place   <br>
+     for (j = 0; j < n-i-1; j++) <br>
+         if (arr[j] > arr[j+1])<br>
+            swap(&arr[j], &arr[j+1]);<br>
+}<br>
+
+/* Function to print an array */<br>
+void printArray(int arr[], int size)<br>
+{<br>
+  for (int i=0; i < size; i++)<br>
+      printf("%d ", arr[i]);<br>
+  printf("\n");<br>
+}<br>
+
+// Driver program to test above functions<br>
+int main()<br>
+{<br>
+  int arr[] = {64, 34, 25, 12, 22, 11, 90};<br>
+  int n = sizeof(arr)/sizeof(arr[0]);<br>
+  bubbleSort(arr, n);<br>
+  printf("Sorted array: \n");<br>
+  printArray(arr, n);<br>
+  return 0;<br>
+}<br>
+            </p>
+        </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-wয়াdth, user-scalable=no" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript" async src="mathjax/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="js/vivus.min.js"></script>
+    <title>Quick Sort</title>
+  </head>
+  <body>
+    <div class="body-content">
+        <div class="card">
+            <h1>About</h1>
+            <p>
+              Quicksort (sometimes called partition-exchange sort) is an efficient sorting algorithm,<br>
+              serving as a systematic method for placing the elements of an array in order. <br>
+              Developed by Tony Hoare in 1959,with his work published in 1961,<br>
+              it is still a commonly used algorithm for sorting.<br>
+              When implemented well, it can be about two or three times faster than its main competitors,<br>
+              merge sort and heapsort.<br><br>
+
+              Mathematical analysis of quicksort shows that, on average, the algorithm takes O(n log n) comparisons to sort n items.<br>
+              In the worst case, it makes O(n2) comparisons, though this behavior is rare.<br>
+            </p>
+        </div>
+        <div class="note">
+            <h1>Algorithm</h1>
+            <p>
+              algorithm quicksort(A, lo, hi) is<br>
+    if lo < hi then<br>
+        p := partition(A, lo, hi)<br>
+        quicksort(A, lo, p – 1)<br>
+        quicksort(A, p + 1, hi)<br><br>
+
+algorithm partition(A, lo, hi) is<br>
+    pivot := A[hi]<br>
+    i := lo     // place for swapping<br>
+    for j := lo to hi – 1 do<br>
+        if A[j] ≤ pivot then<br>
+            swap A[i] with A[j]  <br>
+            i := i + 1<br>
+    swap A[i] with A[hi]<br>
+    return i<br>
+
+            </p>
+        </div>
+        <div class="note">
+            <h1>Implementation</h1>
+            <p>
+              /* C implementation QuickSort */<br>
+#include<stdio.h><br>
+
+// A utility function to swap two elements<br>
+void swap(int* a, int* b)<br>
+{<br>
+    int t = *a;<br>
+    *a = *b;<br>
+    *b = t;<br>
+}<br>
+
+/* This function takes last element as pivot, places<br>
+   the pivot element at its correct position in sorted<br>
+    array, and places all smaller (smaller than pivot)<br>
+   to left of pivot and all greater elements to right<br>
+   of pivot */<br>
+int partition (int arr[], int low, int high)<br>
+{<br>
+    int pivot = arr[high];    // pivot<br>
+    int i = (low - 1);  // Index of smaller element<br>
+
+    for (int j = low; j <= high- 1; j++)<br>
+    {<br>
+        // If current element is smaller than or<br>
+        // equal to pivot<br>
+        if (arr[j] <= pivot)<br>
+        {<br>
+            i++;    // increment index of smaller element<br>
+            swap(&arr[i], &arr[j]);<br>
+        }<br>
+    }<br>
+    swap(&arr[i + 1], &arr[high]);<br>
+    return (i + 1);<br>
+}<br>
+
+/* The main function that implements QuickSort<br>
+ arr[] --> Array to be sorted,<br>
+  low  --> Starting index,<br>
+  high  --> Ending index */<br><br>
+
+void quickSort(int arr[], int low, int high)<br>
+{<br>
+    if (low < high)<br>
+    {<br>
+        /* pi is partitioning index, arr[p] is now<br>
+           at right place */<br>
+        int pi = partition(arr, low, high);<br>
+
+        // Separately sort elements before<br>
+        // partition and after partition<br>
+        quickSort(arr, low, pi - 1);<br>
+        quickSort(arr, pi + 1, high);<br>
+    }<br>
+}<br>
+
+/* Function to print an array */<br>
+void printArray(int arr[], int size)<br>
+{<br>
+    int i;<br>
+    for (i=0; i < size; i++)<br>
+        printf("%d ", arr[i]);<br>
+    printf("\n");<br>
+}<br>
+
+// Driver program to test above functions<br>
+int main()<br>
+{<br>
+    int arr[] = {10, 7, 8, 9, 1, 5};<br>
+    int n = sizeof(arr)/sizeof(arr[0]);<br>
+    quickSort(arr, 0, n-1);<br>
+    printf("Sorted array: \n");<br>
+    printArray(arr, n);<br>
+    return 0;<br>
+}<br>
+            </p>
+        </div>
+
+    </div>
+
+  </body>
+</html>

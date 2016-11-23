@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-wয়াdth, user-scalable=no" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript" async src="mathjax/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="js/vivus.min.js"></script>
+    <title>Merge Sort</title>
+  </head>
+  <body>
+    <div class="body-content">
+        <div class="card">
+            <h1>About</h1>
+            <p>
+              In computer science, merge sort (also commonly spelled mergesort) is an efficient, general-purpose, comparison-based sorting algorithm. <br>
+Most implementations produce a stable sort, which means that the implementation preserves the input order of equal elements in the sorted output.<br>
+Mergesort is a divide and conquer algorithm that was invented by John von Neumann in 1945.<br>
+A detailed description and analysis of bottom-up mergesort appeared in a report by Goldstine and Neumann as early as 1948.<br>
+            </p>
+        </div>
+        <div class="note">
+            <h1>Algorithm</h1>
+            <p>
+              Merge sort keeps on dividing the list into equal halves until it can no more be divided. By definition, if it is only one element in the list, it is sorted. <br>
+Then, merge sort combines the smaller sorted lists keeping the new list sorted too. <br> <br>
+Step 1 − if it is only one element in the list it is already sorted, return. <br>
+Step 2 − divide the list recursively into two halves until it can no more be divided. <br>
+Step 3 − merge the smaller lists into new list in sorted order. <br><br>
+
+MergeSort (Array(First..Last)) <br>
+Begin <br>
+If Array contains only one element Then <br>
+Return Array <br>
+Else <br>
+Middle= ((Last + First)/2) rounded down to the nearest integer <br>
+LeftHalfArray = MergeSort(Array(First..Middle))  <br>
+RightHalfArray = MergeSort(Array(Middle+1..Last))  <br>
+ResultArray = Merge(LeftHalfArray, RightHalfArray)  <br>
+Return ResultArray <br>
+EndIf <br>
+End MergeSort <br>
+
+            </p>
+        </div>
+        <div class="note">
+            <h1>Implementation</h1>
+            <p>
+              #include<bits/stdc++.h>  <br>
+using namespace std;<br>
+int a[100];<br>
+void merge_list(int p,int q,int r)<br>
+{<br>
+  int l[100],R[100],y,n1,n2,i,j;<br>
+
+  n1=q-p+1;<br>
+
+  n2=r-q;<br>
+
+  for(i=1;i<=n1;i++)<br>
+  {<br>
+      l[i]=a[p+i-1];<br>
+  }<br>
+  l[i]=9999999;<br>
+
+  for(j=1;j<=n2;j++)<br>
+  {<br>
+      R[j]=a[q+j];<br>
+  }<br>
+  R[j]=999999;<br>
+
+
+  i=1;<br>
+  j=1;<br>
+  for(int k=p;k<=r;k++)<br>
+  {<br>
+      if(l[i]<R[j])<br>
+      {<br>
+          a[k]=l[i];<br>
+          i++;<br>
+      }<br>
+      else<br>
+      {<br>
+          a[k]=R[j];<br>
+          j++;<br>
+      }<br>
+  }<br>
+}<br>
+
+void merge(int p,int r)<br>
+{<br>
+  int q;<br>
+  if(p<r)<br>
+  {<br>
+      q=(p+r)/2;<br>
+
+      merge(p,q);<br>
+      merge(q+1,r);<br>
+      merge_list(p,q,r);<br>
+  }<br>
+  else<br>
+      return;<br>
+}<br><br>
+
+
+
+int main()<br>
+{<br>
+  int p,r,n;<br>
+
+  cout<<"how many elements\n";<br>
+  cin>>n;<br>
+
+  srand(time(0));<br>
+  for(int i=1;i<=n;i++)<br>
+  {<br>
+
+      a[i]=rand()%20+1;<br>
+      cout<<a[i]<<" ";<br>
+
+  }<br>
+  cout<<"\n";<br>
+  p=1;<br>
+  r=n;<br>
+  merge(p,r);<br>
+
+  printf("\nmerge sorted array\n");<br>
+
+  for(int i=1; i<=n; i++)<br>
+  {<br>
+      printf("%d ",a[i]);<br>
+  }<br>
+  return 0;<br>
+}<br>
+
+            </p>
+        </div>
+
+    </div>
+
+  </body>
+</html>
