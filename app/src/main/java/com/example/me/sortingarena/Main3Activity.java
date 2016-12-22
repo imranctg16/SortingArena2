@@ -18,6 +18,8 @@ public class Main3Activity extends AppCompatActivity {
         view2.getSettings().setLoadWithOverviewMode(true);
         view2.getSettings().setUseWideViewPort(true);
         view2.getSettings().setJavaScriptEnabled(true);
+        view2.getSettings().setBuiltInZoomControls(true);
+        view2.getSettings().setDisplayZoomControls(false);
         view2.loadUrl("https://visualgo.net/sorting");
         view2.setBackgroundColor(Color.TRANSPARENT);
 
